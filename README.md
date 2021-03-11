@@ -16,3 +16,5 @@ quasar mode add pwa
 
 Para rodar aplicação, usar o comando: quasar dev -m pwa
     Irá abrir um servidor na porta 8080.
+    
+Cor base: #6a1b9a, rgb(106, 27, 154)
