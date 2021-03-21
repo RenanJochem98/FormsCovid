@@ -6,6 +6,7 @@
   "author": "Renan Jochem",
   "private": true,
   "scripts": {
+    "start": "quasar dev -m pwa",
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },

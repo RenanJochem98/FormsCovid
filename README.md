@@ -1,20 +1,26 @@
-# FormsCovid
+# FormsCovid (formscovid)
 
-quasar create FormsCovid
-    Project Name: formscovid
-    Project Product Name: FormsCovid
-    Project Description: Formulario web, que replica aplicativo usado para coletar dados de crianças e      adolescentes com intuito de estudar doenças mentais durante a pandemia.
-    Author: Renan Jochem
-    Pick your  favorite CSS  preprocessador: Sass with  indented syntax
-    Pick a Quasar components & directives import strategy: Auto-import in-use Quasar components & directives
-    Check the features needed for your project: Eslint, Vuex, Axios, IE11 Suport
-    Pick an ESLint preset: Standard (https://github.com/standard/standard)
-    Continue to install project dependencies after the project has been created? Yes, use NPM
+Formulario web, que replica aplicativo usado para coletar dados de crianças e      adolescentes com intuito de estudar doenças mentais durante a pandemia.
 
-quasar mode add pwa
-    No arquivo *quasar.conf.js*, alterar configuração do objeto devServer, trocando o atributo https de false para true. ( O pwa exige https para funcionar)
+## Install the dependencies
+```bash
+npm install
+```
 
-Para rodar aplicação, usar o comando: quasar dev -m pwa
-    Irá abrir um servidor na porta 8080.
-    
-Cor base: #6a1b9a, rgb(106, 27, 154)
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+quasar dev
+```
+
+### Lint the files
+```bash
+npm run lint
+```
+
+### Build the app for production
+```bash
+quasar build
+```
+
+### Customize the configuration
+See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
