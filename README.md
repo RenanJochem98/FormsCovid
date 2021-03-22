@@ -24,3 +24,8 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+
+### Run Docker
+```bash
+docker run -it -p 8000:8080 --rm <image_name>
+```
