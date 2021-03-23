@@ -6,16 +6,19 @@ FROM vuejs/ci
 RUN apt-get update
 RUN apt-get autoremove
 
-RUN mkdir /home/app
-WORKDIR /home/app
+RUN mkdir /home/FormsCovid
+WORKDIR /home/FormsCovid
 
-COPY package*.json ./
+COPY package.json /home/FormsCovid/package.json
+COPY jsconfig.json /home/FormsCovid/jsconfig.json
+COPY package-lock.json /home/FormsCovid/package-lock.json
+
 RUN npm install -g @quasar/cli
 RUN npm install
 
-COPY . .
+# COPY . .
 
-EXPOSE 80
+# EXPOSE 80
 EXPOSE 8080
 
-CMD ["quasar", "dev", "-m", "pwa"]
+#CMD ["quasar", "dev", "-m", "pwa"]
