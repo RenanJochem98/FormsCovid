@@ -3,6 +3,12 @@
 
     <q-header elevated class="color-default text-white">
       <q-toolbar>
+        <q-btn
+          flat
+          dense
+          icon="arrow_back"
+          to="/"
+        />
         <q-toolbar-title>
           Forms Covid
         </q-toolbar-title>

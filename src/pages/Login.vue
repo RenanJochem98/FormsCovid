@@ -11,6 +11,7 @@
         mask="###.###.###-##"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'O valor digitado não é válido.']"
+        v-model="cpf"
       />
       <label class="text-h5 label">
         Senha
@@ -31,7 +32,7 @@
           />
         </template>
       </q-input>
-      <q-btn label="Continuar" class="btnInscricao justify-around full-width"/>
+      <q-btn label="Continuar" class="btnInscricao justify-around full-width" @click="doLogin"/>
     </q-form>
 
   </div>
@@ -46,12 +47,30 @@
   }
 </style>
 <script>
+import api from 'src/services/api'
 export default {
   name: 'LoginPage',
   data () {
     return {
+      cpf: '',
       password: '',
       isPwd: true
+    }
+  },
+  methods: {
+    doLogin: function () {
+      console.log(api)
+      api.post('/users/login/', {
+        cpf: this.cpf.replace(/\D/g, ''), // remove caracteres nao numericos
+        password: this.password
+      })
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+      console.log('Deu boa')
     }
   }
 }
