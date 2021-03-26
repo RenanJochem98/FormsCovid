@@ -9,7 +9,7 @@
       <p class="subTexto">Ao participar da nossa pesquisa, você ajuda com dados sobre a saúde e pode receber apoio médico, caso precise.</p>
     </div>
     <div class="row justify-around">
-      <q-img src="../assets/imagem.png" style="width: 150px" :ratio="1" basic ></q-img>
+      <q-img src="../assets/imagem.png" style="width: 150px" basic ></q-img>
     </div>
     <div class="row justify-around q-pa-md">
       <q-btn to="Cadastro" class="btnInscricao" label="QUERO PARTICIPAR" />
