@@ -24,6 +24,14 @@ const routes = [
       { path: '', component: () => import('pages/Cadastro.vue') }
     ]
   },
+  {
+    path: '/Incio',
+    component: () => import('layouts/LoginLayout.vue'),
+    name: 'Inicio',
+    children: [
+      { path: '', component: () => import('pages/Inicio.vue') }
+    ]
+  },
 
   // Always leave this as last one,
   // but you can also remove it

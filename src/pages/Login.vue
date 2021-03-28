@@ -48,6 +48,7 @@
 </style>
 <script>
 import api from 'src/services/api'
+
 export default {
   name: 'LoginPage',
   data () {
@@ -58,19 +59,32 @@ export default {
     }
   },
   methods: {
-    doLogin: function () {
-      console.log(api)
-      api.post('/users/login/', {
-        cpf: this.cpf.replace(/\D/g, ''), // remove caracteres nao numericos
-        password: this.password
+    async doLogin () {
+      try {
+        const login = await api.post('/users/login/', {
+          cpf: this.cpf.replace(/\D/g, ''), // remove caracteres nao numericos
+          password: this.password
+        })
+        this.$store.dispatch('login/ActionSetUserId', login.data.id)
+        this.$store.dispatch('login/ActionSetToken', login.data.token)
+        this.triggerPositive()
+        this.$router.push({ name: 'Inicio' })
+      } catch (err) {
+        this.triggerNegative()
+      }
+    },
+    triggerPositive () {
+      this.$q.notify({
+        type: 'positive',
+        message: 'Login realizado com succeso'
       })
-        .then(function (response) {
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-      console.log('Deu boa')
+    },
+
+    triggerNegative () {
+      this.$q.notify({
+        type: 'negative',
+        message: 'Houve um problema para realizar o login.'
+      })
     }
   }
 }
