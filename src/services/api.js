@@ -1,4 +1,5 @@
 import axios from 'axios'
+// import { QSpinnerGears } from 'quasar'
 
 axios.defaults.baseURL = 'https://covid-criancas.herokuapp.com/api/v1'
 const api = axios.create({
@@ -6,4 +7,24 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' }
 })
 
+// axios.interceptors.response.use(function (response) {
+//   console.log('mensagem de response aqui')
+//   return response
+// }, function (error) {
+//   return Promise.reject(error)
+// })
+// axios.interceptors.request.use(function (request) {
+//   console.log('Request init')
+//   return request
+// }, function (error) {
+//   return Promise.reject(error)
+// })
+
+// function showCustom () {
+//   this.$q.notify({
+//     spinner: QSpinnerGears,
+//     message: 'Working...',
+//     timeout: 2000
+//   })
+// }
 export default api
