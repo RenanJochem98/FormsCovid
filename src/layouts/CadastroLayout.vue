@@ -12,6 +12,7 @@
         <q-toolbar-title>
           Quero participar
         </q-toolbar-title>
+        <BtnLogout />
       </q-toolbar>
     </q-header>
 
@@ -34,7 +35,9 @@
 </style>
 
 <script>
+import BtnLogout from 'src/components/BtnLogout.vue'
 export default {
+  components: { BtnLogout },
   name: 'CadastroLayout',
   data () {
     return {}

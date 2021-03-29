@@ -25,7 +25,7 @@ const routes = [
     ]
   },
   {
-    path: '/Incio',
+    path: '/Inicio',
     component: () => import('layouts/LoginLayout.vue'),
     name: 'Inicio',
     children: [

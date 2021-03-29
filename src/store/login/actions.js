@@ -10,3 +10,10 @@ export const ActionSetUserId = ({ commit }, payload) => {
   storage.setLocalUserId(payload)
   commit('SetUserId', payload)
 }
+
+export const ActionLogout = ({ dispatch }) => {
+  storage.removeLocalToken()
+  storage.removeLocalUserId()
+  dispatch('ActionSetToken', '')
+  dispatch('ActionSetUserId', 0)
+}
