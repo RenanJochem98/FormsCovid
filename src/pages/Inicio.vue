@@ -1,16 +1,17 @@
 <template>
-  <q-page padding>
-    <h1>{{ cpf }}</h1>
-  </q-page>
+  <div>
+    <h4>Inicio</h4>
+    <h5>{{ token }}</h5>
+  </div>
 </template>
 
 <script>
-// import { mapState } from 'vuex'
 export default {
   name: 'Inicio',
-  computed: {
-    // ...mapState('login', ['cpf'])
-    cpf: this.$store.state.login.cpf
+  data () {
+    return {
+      token: this.$store.getters['login/getToken']
+    }
   }
 }
 </script>
