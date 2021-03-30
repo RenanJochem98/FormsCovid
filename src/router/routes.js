@@ -3,33 +3,29 @@ const routes = [
   {
     path: '/',
     component: () => import('layouts/IndexLayout.vue'),
-    name: 'index',
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: '', name: 'Index', component: () => import('pages/Index.vue') }
     ]
   },
   {
     path: '/Login',
     component: () => import('layouts/LoginLayout.vue'),
-    name: 'Login',
     children: [
-      { path: '', component: () => import('pages/Login.vue') }
+      { path: '', name: 'Login', component: () => import('pages/Login.vue') }
     ]
   },
   {
     path: '/Cadastro',
     component: () => import('layouts/CadastroLayout.vue'),
-    name: 'Cadastro',
     children: [
-      { path: '', component: () => import('pages/Cadastro.vue') }
+      { path: '', name: 'Cadastro', component: () => import('pages/Cadastro.vue') }
     ]
   },
   {
     path: '/Inicio',
-    component: () => import('layouts/LoginLayout.vue'),
-    name: 'Inicio',
+    component: () => import('layouts/InicioLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Inicio.vue') }
+      { path: '', name: 'Inicio', component: () => import('pages/Inicio.vue') }
     ]
   },
 
