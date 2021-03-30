@@ -2,10 +2,6 @@ import axios from 'axios'
 // import { QSpinnerGears } from 'quasar'
 
 axios.defaults.baseURL = 'https://covid-criancas.herokuapp.com/api/v1'
-const api = axios.create({
-  timeout: 30000,
-  headers: { 'Content-Type': 'application/json' }
-})
 
 // axios.interceptors.response.use(function (response) {
 //   console.log('mensagem de response aqui')
@@ -19,6 +15,14 @@ const api = axios.create({
 // }, function (error) {
 //   return Promise.reject(error)
 // })
+
+const api = axios.create({
+  timeout: 30000,
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  }
+})
 
 // function showCustom () {
 //   this.$q.notify({
