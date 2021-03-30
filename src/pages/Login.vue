@@ -65,10 +65,10 @@ export default {
           cpf: this.cpf.replace(/\D/g, ''), // remove caracteres nao numericos
           password: this.password
         })
-        this.$store.dispatch('login/ActionSetUserId', login.data.id)
-        this.$store.dispatch('login/ActionSetToken', login.data.token)
+        await this.$store.dispatch('login/ActionSetUserId', login.data.id)
+        await this.$store.dispatch('login/ActionSetToken', login.data.token)
         this.triggerPositive()
-        this.$router.push({ name: 'Inicio' })
+        this.$router.push('/Inicio')
       } catch (err) {
         this.triggerNegative()
       }
