@@ -1,12 +1,16 @@
+import { Notify } from 'quasar'
 import store from '../store/index'
 
 export default async (to, from, next) => {
-  console.log('log log')
-  console.log(to)
+  console.log('Aqui novamente')
   if (!store.getters['login/getToken']) {
     if (to.name === 'Login' || to.name === 'Index') {
       next()
     } else {
+      Notify.create({
+        type: 'negative',
+        message: 'Você deve fazer login para acessar a página ' + to.name
+      })
       next({ name: 'Login' })
     }
   } else {
