@@ -2,7 +2,6 @@ import { Notify } from 'quasar'
 import store from '../store/index'
 
 export default async (to, from, next) => {
-  console.log('Aqui novamente')
   if (!store.getters['login/getToken']) {
     if (to.name === 'Login' || to.name === 'Index') {
       next()
