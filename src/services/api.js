@@ -1,20 +1,16 @@
 import axios from 'axios'
+import { Notify } from 'quasar'
 // import { QSpinnerGears } from 'quasar'
 
+function showCustom () {
+  Notify.create({
+    type: 'warning',
+    message: 'Processando requisição',
+    spinner: true,
+    timeout: 1000
+  })
+}
 axios.defaults.baseURL = 'https://covid-criancas.herokuapp.com/api/v1'
-
-// axios.interceptors.response.use(function (response) {
-//   console.log('mensagem de response aqui')
-//   return response
-// }, function (error) {
-//   return Promise.reject(error)
-// })
-// axios.interceptors.request.use(function (request) {
-//   console.log('Request init')
-//   return request
-// }, function (error) {
-//   return Promise.reject(error)
-// })
 
 const api = axios.create({
   timeout: 30000,
@@ -24,11 +20,20 @@ const api = axios.create({
   }
 })
 
-// function showCustom () {
-//   this.$q.notify({
-//     spinner: QSpinnerGears,
-//     message: 'Working...',
-//     timeout: 2000
-//   })
-// }
+api.interceptors.request.use(function (request) {
+  showCustom()
+  return request
+}, function (error) {
+  return Promise.reject(error)
+})
+
+api.interceptors.response.use(function (response) {
+  console.log('mensagem de response aqui')
+  console.log(response)
+  response.headers['Access-Control-Allow-Origin'] = '*'
+  return response
+}, function (error) {
+  return Promise.reject(error)
+})
+
 export default api
