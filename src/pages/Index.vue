@@ -5,6 +5,9 @@
     <div class="row justify-around text-center">
       <h4 class="title">Cuidado com a saúde mental de crianças e adolescentes </h4>
     </div>
+    <div class="row justify-around text-center q-pa-md">
+      <q-video src='https://www.youtube.com/embed/v8C2eIJUfGY' />
+    </div>
     <div class="row">
       <p class="subTexto">Ao participar da nossa pesquisa, você ajuda com dados sobre a saúde e pode receber apoio médico, caso precise.</p>
     </div>
