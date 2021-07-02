@@ -7,7 +7,7 @@
           flat
           dense
           icon="arrow_back"
-          to="/"
+          @click="voltar"
         />
         <q-toolbar-title>
           Quero participar
@@ -38,6 +38,11 @@
 import BtnLogout from 'src/components/BtnLogout.vue'
 export default {
   components: { BtnLogout },
-  name: 'InicioLayout'
+  name: 'InicioLayout',
+  methods: {
+    voltar () {
+      this.$router.go(-1)
+    }
+  }
 }
 </script>
