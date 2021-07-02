@@ -28,6 +28,14 @@ const routes = [
       { path: '', name: 'Inicio', component: () => import('pages/Inicio.vue') }
     ]
   },
+  {
+    path: '/Exame',
+    component: () => import('layouts/InicioLayout.vue'),
+    children: [
+      { path: ':id', name: 'Exame', component: () => import('pages/Exame.vue') },
+      { path: ':id/Questao/:questionId', name: 'Questao', component: () => import('pages/Questao.vue') }
+    ]
+  },
 
   // Always leave this as last one,
   // but you can also remove it
