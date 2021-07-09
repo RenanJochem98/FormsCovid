@@ -10,7 +10,7 @@
           @click="voltar"
         />
         <q-toolbar-title>
-          Quero participar
+          Forms Covid
         </q-toolbar-title>
         <BtnLogout />
       </q-toolbar>
