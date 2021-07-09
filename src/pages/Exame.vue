@@ -14,13 +14,13 @@
               <div v-for="answer in question.answers" :key="answer.id" class="col-3">
                 <!-- <input type="radio" :name="question.id" :id="answer.id">
                 <label :for="answer.id">{{answer.title}}</label> -->
-                <q-radio v-model="result[question.id]" :id="answer.id" :val="answer.id" :label="answer.title" color="purple"/>
+                <q-radio v-model="results[question.id]" :id="answer.id" :val="answer.id" :label="answer.title" color="purple"/>
               </div>
             </div>
           </div>
           <div v-else-if="question.response_type == 'free_text'" class="q-pb-md">
             <div class="row flex-center q-pb-md">
-              <q-input v-model="result[question.id]" label="Escreva aqui sua resposta" class="col-6"/>
+              <q-input v-model="results[question.id]" label="Escreva aqui sua resposta" class="col-6"/>
             </div>
           </div>
         </div>
@@ -44,8 +44,14 @@ export default {
   name: 'Exame',
   data () {
     return {
-      exame: {},
-      result: {}
+      exame: {
+        exam: this.$router.id,
+        tutor: '',
+        child: '',
+        answer: '',
+        answer_text: ''
+      },
+      results: {}
     }
   },
   beforeMount () {
@@ -56,8 +62,24 @@ export default {
       const exam = await api.get('/exams/' + this.$route.params.id, { headers: { Authorization: 'Token ' + this.$store.getters['login/getToken'] } })
       this.exame = exam.data
     },
-    enviarResposta () {
-      console.log(this.result)
+    async enviarResposta () {
+      console.log(this.results)
+      const send = []
+      for (var result in this.results) {
+        const resposta = {
+          exam: 9,
+          tutor: 3,
+          child: null,
+          answer: this.results[result],
+          image: null,
+          answer_text: ''
+        }
+        send.push(resposta)
+      }
+      const apiResult = await api.post('/results/bulk_create/', send,
+        { headers: { Authorization: 'Token ' + this.$store.getters['login/getToken'] } }
+      )
+      console.log(apiResult)
     }
   }
 }
