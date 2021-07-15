@@ -67,6 +67,10 @@ export default {
         })
         await this.$store.dispatch('login/ActionSetUserId', login.data.id)
         await this.$store.dispatch('login/ActionSetToken', login.data.token)
+
+        const tutor = await api.get('tutors/', { headers: { Authorization: 'Token ' + login.data.token } })
+        await this.$store.dispatch('tutor/ActionSetTutor', tutor.data[0])
+
         this.triggerPositive()
         this.$router.push('/Inicio')
       } catch (err) {
