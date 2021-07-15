@@ -14,6 +14,8 @@ export const ActionSetUserId = ({ commit }, payload) => {
 export const ActionLogout = ({ dispatch }) => {
   storage.removeLocalToken()
   storage.removeLocalUserId()
+  storage.removeLocalTutor()
   dispatch('ActionSetToken', '')
   dispatch('ActionSetUserId', 0)
+  dispatch('tutor/ActionSetTutor', {})
 }
