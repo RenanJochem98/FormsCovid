@@ -1,13 +1,23 @@
 <template>
   <div>
-    <h4>Olá, {{ nome }}!</h4>
-    <div>O gerenciamento da sua família acontece por aqui, é só você incluir uma nova pessoa</div>
-    <BtnAddPessoa titulo='Crianças' descricao='De 6 a 12 anos' />
-    <BtnAddPessoa titulo='Adolescentes' descricao='De 13 a 18 anos' />
-    <div>Sua familia</div>
-    <div v-for='crianca in this.criancas' :key="crianca.id" >
-      {{ crianca.name }}
+    <h4 class="text-center">Olá, {{ nome }}!</h4>
+    <div class="text-center q-px-lg q-pb-lg">O gerenciamento da sua família acontece por aqui, é só você incluir uma nova pessoa</div>
+    <div class="row">
+      <div class="row col-12 flex flex-center">ADICIONAR</div>
+      <div class="col-6 flex justify-end">
+        <BtnAddPessoa titulo='Crianças' descricao='De 6 a 12 anos' />
+      </div>
+      <div class="col-6 flex justify-start">
+        <BtnAddPessoa titulo='Adolescentes' descricao='De 13 a 18 anos' />
+      </div>
     </div>
+    <div class="row col-12 flex flex-center">Sua familia</div>
+    <div v-if="this.criancas.length">
+      <div v-for='crianca in this.criancas' :key="crianca.id" >
+        {{ crianca.name }}
+      </div>
+    </div>
+    <div v-else>Nenhuma membro cadastrado</div>
     <div v-for="exam in this.exams" :key="exam.id">
         <q-btn :to="'/Exame/'+exam.id" class="btnInscricao" :label="exam.id+' - '+exam.name" />
     </div>
@@ -15,7 +25,7 @@
 </template>
 
 <script>
-// import Exam from 'components/Exam'
+
 import BtnAddPessoa from 'components/BtnAddPessoa'
 
 import api from 'src/services/api'
@@ -23,12 +33,11 @@ export default {
   name: 'Inicio',
   components: {
     BtnAddPessoa
-    // ,Exam
   },
   data () {
     return {
       token: this.$store.getters['login/getToken'],
-      nome: 'Ciclana',
+      nome: this.$store.getters['tutor/getTutor'].name,
       criancas: [],
       exams: []
     }

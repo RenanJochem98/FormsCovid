@@ -1,6 +1,6 @@
 <template>
   <div class='row template'>
-    <q-btn class="color">
+    <q-btn class="color q-pa-xs">
     <div>
       <div>{{ titulo }}</div>
       <div class='descricao'>{{ descricao }}</div>
