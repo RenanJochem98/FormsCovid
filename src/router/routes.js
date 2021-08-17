@@ -29,11 +29,38 @@ const routes = [
     ]
   },
   {
+    path: '/InserirTutor',
+    component: () => import('layouts/InicioLayout.vue'),
+    children: [
+      { path: '', name: 'InserirTutor', component: () => import('pages/InserirTutor.vue') }
+    ]
+  },
+  {
+    path: '/InserirCrianca',
+    component: () => import('layouts/InicioLayout.vue'),
+    children: [
+      { path: '', name: 'InserirCrianca', component: () => import('pages/InserirCrianca.vue') }
+    ]
+  },
+  {
+    path: '/InserirAdolescente',
+    component: () => import('layouts/InicioLayout.vue'),
+    children: [
+      { path: '', name: 'InserirAdolescente', component: () => import('pages/InserirAdolescente.vue') }
+    ]
+  },
+  {
     path: '/Exame',
     component: () => import('layouts/InicioLayout.vue'),
     children: [
-      { path: ':id', name: 'Exame', component: () => import('pages/Exame.vue') },
-      { path: ':id/Questao/:questionId', name: 'Questao', component: () => import('pages/Questao.vue') }
+      { path: ':id', name: 'Exame', component: () => import('pages/Exame.vue') }
+    ]
+  },
+  {
+    path: '/Crianca',
+    component: () => import('layouts/InicioLayout.vue'),
+    children: [
+      { path: ':id', name: 'Crianca', component: () => import('pages/Crianca.vue') }
     ]
   },
 
