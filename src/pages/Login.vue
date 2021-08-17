@@ -69,10 +69,15 @@ export default {
         await this.$store.dispatch('login/ActionSetToken', login.data.token)
 
         const tutor = await api.get('tutors/', { headers: { Authorization: 'Token ' + login.data.token } })
-        await this.$store.dispatch('tutor/ActionSetTutor', tutor.data[0])
+        if (tutor.data.length > 0) {
+          await this.$store.dispatch('tutor/ActionSetTutor', tutor.data[0])
 
-        this.triggerPositive()
-        this.$router.push('/Inicio')
+          this.triggerPositive()
+          this.$router.push('/Inicio')
+        } else {
+          this.triggerPositive()
+          this.$router.push('/InserirTutor')
+        }
       } catch (err) {
         this.triggerNegative()
       }
