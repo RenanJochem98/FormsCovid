@@ -1,6 +1,6 @@
 <template>
   <div class='row template'>
-    <q-btn class="color q-pa-xs">
+    <q-btn class="color q-pa-xs" :to=to>
     <div>
       <div>{{ titulo }}</div>
       <div class='descricao'>{{ descricao }}</div>
@@ -29,6 +29,6 @@
 <script>
 export default {
   name: 'BtnAddPessoa',
-  props: ['titulo', 'descricao']
+  props: ['titulo', 'descricao', 'to']
 }
 </script>
